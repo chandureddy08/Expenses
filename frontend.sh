@@ -10,7 +10,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ USERID -ne 0 ]
+if [ $USERID -ne 0 ]
 then
   echo "please run this script with root access"
   exit 5

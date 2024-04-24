@@ -12,8 +12,8 @@ N="\e[0m"
 echo "Please enter DB Password:"
 read -s mysql_root_password
 
-if [ USERID -ne 0 ]
-   then
+if [USERID -ne 0]
+then
    echo "Run this script with root access"
 else
     echo "You are root user"

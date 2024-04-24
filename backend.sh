@@ -66,20 +66,20 @@ VALIDATE $? "Installing Node js dependencies"
 cp /home/ec2-user/Expenses/backend.serive /etc/systemd/system/backend.service &>>LOGFILE
 VALIDATE $? "Copied backend service"
 
-systemctl daemon-reload &>>LOGFILE
+systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "Daemon Reload"
 
-systemctl start backend &>>LOGFILE
+systemctl start backend &>>$LOGFILE
 VALIDATE$? "Starting backend"
 
-systemctl enable backend &>>LOGFILE
+systemctl enable backend &>>$LOGFILE
 VALIDATE $? "Enabling backend"
 
-dnf install mysql -y &>>LOGFILE
+dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySql client"
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>LOGFILE
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "Schema Loading"
 
-systemctl restart backend &>>LOGFILE
+systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting the backend"
